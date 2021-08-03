@@ -37,6 +37,10 @@ Core/Src/stm32h7xx_hal_msp.c \
 Core/Src/stm32h7xx_it.c \
 Core/Src/system_stm32h7xx.c
 
+# Add common C++ sources here
+CXX_SOURCES = 
+
+
 GNUBOY_C_SOURCES = \
 Core/Src/porting/gb/main_gb.c \
 retro-go-stm32/gnuboy-go/components/gnuboy/cpu.c \
@@ -131,8 +135,9 @@ retro-go-stm32/huexpress-go/components/huexpress/engine/hard_pce.c \
 Core/Src/porting/pce/sound_pce.c \
 Core/Src/porting/pce/main_pce.c
 
-SNES9X_C_SOURCES = \
-Core/Src/porting/snes9x/main_snes9x.c
+SNES9X_CXX_SOURCES = \
+Core/Src/porting/snes9x/main_snes9x.cpp \
+Core/Src/porting/snes9x/heap.cpp \
 
 
 C_INCLUDES +=  \

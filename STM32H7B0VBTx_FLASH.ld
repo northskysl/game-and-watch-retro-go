@@ -81,6 +81,7 @@ __RAM_CORE_START__  = __RAM_START__ + __RAM_UC_LENGTH__;
 __RAM_EMU_START__   = __RAM_CORE_START__ + __RAM_CORE_LENGTH__;
 
 __RAM_EMU_END__     = __RAM_EMU_START__ + __RAM_EMU_LENGTH__;
+__RAM_END__         = 0x24000000 + 1024K;
 
 /* saveflash.ld sets __SAVEFLASH_LENGTH__ */
 INCLUDE build/saveflash.ld

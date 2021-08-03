@@ -2,7 +2,9 @@ TARGET = retro-go-snes
 
 DEBUG = 1
 #OPT = -O2 -ggdb -fsanitize=address
-OPT = -O0 -ggdb3 -fsanitize=address
+#OPT = -O0 -ggdb3 -fsanitize=address
+OPT = -O0 -ggdb3
+
 
 BUILD_DIR = build
 
