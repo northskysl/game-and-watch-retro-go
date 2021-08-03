@@ -1,7 +1,7 @@
 TARGET = retro-go-snes
 
 DEBUG = 1
-#OPT = -Og -ggdb
+#OPT = -O2 -ggdb -fsanitize=address
 OPT = -O0 -ggdb3 -fsanitize=address
 
 BUILD_DIR = build
@@ -73,6 +73,8 @@ snes/main_snes.cpp \
 ../3rdparty/snes9x/seta.cpp \
 ../3rdparty/snes9x/sha256.cpp \
 ../3rdparty/snes9x/snapshot.cpp \
+../3rdparty/snes9x/srtc.cpp \
+../3rdparty/snes9x/spc7110.cpp \
 ../3rdparty/snes9x/snes9x.cpp \
 ../3rdparty/snes9x/statemanager.cpp \
 ../3rdparty/snes9x/stream.cpp \
@@ -148,7 +150,8 @@ $(BUILD_DIR)/%.o: %.cpp Makefile.nes | $(BUILD_DIR)
 	$(CXX) -c $(CXXFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.cpp=.lst)) $< -o $@
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) $(CXX_OBJECTS) Makefile.nes
-	$(CC) $(OBJECTS) $(CXX_OBJECTS) $(LDFLAGS) -o $@
+	# $(CC) $(OBJECTS) $(CXX_OBJECTS) $(LDFLAGS) -Wl,-verbose -o $@
+	$(CC) $(OBJECTS) $(CXX_OBJECTS) $(LDFLAGS)   -o $@
 	$(SZ) $@
 
 $(BUILD_DIR):
